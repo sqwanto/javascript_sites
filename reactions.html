@@ -26,19 +26,15 @@
 
 		#square {
 			left: 200px;
+			display: none;
 		}
 
 		#circle {
 			left: 300px;
+			display: none;
 		}
 
 	</style>
-
-<!-- 
-	Generate randomly sized & located squares and circles
-	User must click on them
-	Measure time from appearance to click
--->
 
 </head>
 <body>
@@ -50,11 +46,11 @@
 
 	<section>
 		<svg class="shape" id="circle">
-			<circle cx="50" cy="50" r="40" fill="red"/>
+			<circle cx="50" cy="50" r="40" fill=""/>
 		</svg>
 
 		<svg class="shape" id="square">
-			<rect height="100" width="100" fill="blue" />
+			<rect height="100" width="100" fill="" />
 		</svg>
 
 	</section>
@@ -65,66 +61,66 @@
 
 	var circle = document.getElementById('circle');
 	var square = document.getElementById('square');
-	var triangle = document.getElementById('triangle');
 	var submit = document.getElementById('submit');
 
 	submit.onclick = function(){
-
-		//
-		//	** CHANGE DIMENSIONS **
-		//	**		AND 		 **
-		//	**  STYLES TO SVG 	 **
-		//	**   PROPERTIES		 **
-		//
 
 		// choose circle or square to display
 		var shapeArray = [circle, square];
 		var randShape = Math.floor(Math.random() * shapeArray.length);
 		var chooseShape = shapeArray[randShape];
 
-		// generate random square height & width
-		var squareHeight = Math.floor(Math.random() * 100);
-		var squareWidth = Math.floor(Math.random() * 100);
-
-		// set height & width
-		square.style.height = squareHeight + "px";
-		square.style.width = squareWidth + "px";
-
-		// generate random circle dimensions
-		// height & width are same
-		// radius must be one half
-		var circleDiameter = Math.floor(Math.random() * 100);
-		var circleRadius = circleDiameter / 2;
-
-		// set circle dimensions
-		circle.style.height = circleDiameter + "px";
-		circle.style.width = circleDiameter + "px";
-		circle.style.borderRadius = circleRadius + "px";
-
-		// move circle & square to random locations
-		var circTop = Math.floor(Math.random() * 400);
-		var circLeft = Math.floor(Math.random() * 800);
-		var squareTop = Math.floor(Math.random() * 400);
-		var squareLeft = Math.floor(Math.random() * 800);
-
-		circle.style.top = circTop + "px";
-		circle.style.left = circLeft + "px";
-
-		square.style.top = squareTop + "px";
-		square.style.left = squareLeft + "px";
-
-		// generate random color
+		// generate & set random color
 		var colorArray = ["red", "orange", "yellow", "green", "blue", "purple", "black"];
 		var randColor = Math.floor(Math.random() * colorArray.length);
 		var shapeColor = colorArray[randColor];
 
-		// set random color & display element
-		chooseShape.style.backgroundColor = shapeColor;
-		chooseShape.style.display = "block";
+		chooseShape.style.fill = shapeColor;
 
+		// if square
+		if (chooseShape == square){
+			// generate random square height & width
+			var squareHeight = Math.floor(Math.random() * 100);
+			var squareWidth = Math.floor(Math.random() * 100);
+
+			// set height & width
+			square.style.height = squareHeight;
+			square.style.width = squareWidth;
+
+			// move square to random location
+			var squareTop = Math.floor(Math.random() * 400);
+			var squareLeft = Math.floor(Math.random() * 800);
+
+			square.style.top = squareTop + "px";
+			square.style.left = squareLeft + "px";
+
+			// display element
+			chooseShape.style.display = "block";
+		}	
+		else {
+			// generate random circle dimensions
+			var circleDiameter = Math.floor(Math.random() * 100);
+			var circleRadius = circleDiameter / 2;
+
+			// set circle dimensions
+			circle.setAttribute.cx = circleDiameter;
+			circle.setAttribute.cy = circleDiameter;
+			circle.setAttribute.r = circleRadius;
+
+			// move circle & square to random locations
+			var circTop = Math.floor(Math.random() * 400);
+			var circLeft = Math.floor(Math.random() * 800);
+
+			circle.style.top = circTop + "px";
+			circle.style.left = circLeft + "px";
+
+			// display element
+			chooseShape.style.display = "block";
+		}
 		// hide shape onclick
 		chooseShape.onclick = function(){
-			chooseShape.style.display = "none";
+		chooseShape.style.display = "none";
+
 		}
 	}
 
