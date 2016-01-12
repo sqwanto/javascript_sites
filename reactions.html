@@ -44,7 +44,6 @@
 		<input type="button" value="Ready!" id="submit">
 	</section>
 
-	<section>
 		<svg class="shape" id="circle">
 			<circle cx="50" cy="50" r="40" fill=""/>
 		</svg>
@@ -52,8 +51,6 @@
 		<svg class="shape" id="square">
 			<rect height="100" width="100" fill="" />
 		</svg>
-
-	</section>
 
 </body>
 
@@ -117,10 +114,10 @@
 			// display element
 			chooseShape.style.display = "block";
 		}
+
 		// hide shape onclick
 		chooseShape.onclick = function(){
-		chooseShape.style.display = "none";
-
+			chooseShape.style.display = "none";
 		}
 	}
 
