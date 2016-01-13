@@ -10,6 +10,7 @@
 			width: 200px;
 			height: 200px;
 			background-color: red;
+			position: relative;
 			display: none;
 		}
 
@@ -33,11 +34,20 @@
 	var clickTime;
 	var reactionTime;
 
+	// change color
 	function colorChange(){
 		var boxColor = ["blue", "red", "orange", "purple", "green"];
 		var randNumber = Math.floor(Math.random() * boxColor.length);
 		box.style.backgroundColor = boxColor[randNumber];
-	}
+	};
+
+	// change location
+	function locationChange(){
+		var boxTop = Math.floor(Math.random() * 500);
+		var boxLeft = Math.floor(Math.random() * 700);
+		box.style.top = boxTop + "px";
+		box.style.left = boxLeft + "px";
+	};
 
 	function showbox(){
 
@@ -56,6 +66,7 @@
 	box.onclick = function() {
 
 		colorChange();
+		locationChange();
 
 		this.style.display = "none";
 		showbox();
