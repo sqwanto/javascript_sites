@@ -33,11 +33,17 @@
 	var clickTime;
 	var reactionTime;
 
-	Date.now();
+	function colorChange(){
+		var boxColor = ["blue", "red", "orange", "purple", "green"];
+		var randNumber = Math.floor(Math.random() * boxColor.length);
+		box.style.backgroundColor = boxColor[randNumber];
+	}
 
 	function showbox(){
 
 		var randTime = Math.floor(Math.random() * 5000);
+
+		colorChange();
 		
 		setTimeout(function() {
 		box.style.display = "block";
@@ -48,6 +54,9 @@
 	showbox();
 
 	box.onclick = function() {
+
+		colorChange();
+
 		this.style.display = "none";
 		showbox();
 
