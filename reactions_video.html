@@ -14,12 +14,33 @@
 			display: none;
 		}
 
+		body {
+			font-family: Arial, sans-serif;
+		}
+
+		#title {
+			position: relative;
+			left: 35%;
+			max-width: 500px;
+		}
+
+		#time {
+			text-decoration: underline;
+			font-weight: bold;
+		}
+
 	</style>
 
 </head>
 <body>
+	<div id="title">
 
-	<p>Your time: <span id="time"></span></p>
+		<h1>Test your reactions!</h1>
+
+		<p>Click on the shape that appears as quickly as possible</p>
+
+		<p>Your time: <span id="time"></span> seconds</p>
+	</div>
 
 	<div id="box"></div>
 
@@ -64,6 +85,7 @@
 		var randTime = Math.floor(Math.random() * 5000);
 
 		colorChange();
+		locationChange();
 		
 		setTimeout(function() {
 		box.style.display = "block";
